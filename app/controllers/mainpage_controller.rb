@@ -1,8 +1,11 @@
+require 'will_paginate/array'
+
 class MainpageController < ApplicationController
   helper_method :sort_direction
   def index
     total = 0
-    @movies = Movie.order(params[:sort])
+    #@movies = Movie.order(params[:sort])
+    @movies = Movie.paginate(:page => params[:page], :per_page => 10).order(params[:sort])
     @reviews = Review.all
     @movies.each do |x|
       if x.reviews.length != 0

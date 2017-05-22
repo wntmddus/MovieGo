@@ -21,6 +21,7 @@
     <% @movies.each do |movie| %>
       <%= render partial: 'movies/post', locals: { movie: movie } %>
     <% end %>
+    <%= will_paginate @movies %>
   </div>
   <div class="col-md-4", style="padding-left:0">
     <div class="container">

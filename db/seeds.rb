@@ -51,7 +51,7 @@ for i in (1..100)
   end
  end
  movies = Movie.all
- 500.times do
+ 5000.times do
    Review.create!(
     body: "Its good movie",
     score: rand(1..5),
