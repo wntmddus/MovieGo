@@ -1,0 +1,41 @@
+<div class="container", style="padding-left:0">
+   <div class="row">
+       <div class="col-xs-12 col-sm-6 col-md-6">
+           <div class="well well-sm">
+               <div class="row">
+                   <div class="col-sm-6 col-md-4">
+                       <img src="<%= @movie.image_url %>"  alt="" class="img-rounded img-responsive" />
+                       <div class="star-rating", style="padding-left: 13px;", data-score= <%= @movie.rating %> >
+                       </div>
+                   </div>
+                   <div class="col-sm-6 col-md-8">
+                       <h4><%= @movie.title %></h4>
+                       <p>
+                           <i class="glyphicon glyphicon-gift"></i><%= @movie.release_date %>
+                           <br/>
+                           <i class="glyphicon glyphicon-gift"></i><%= @movie.genre %>
+                       </p>
+                       <!-- Split button -->
+                       <%= link_to "Write a review", new_movie_review_path(@movie), class: "btn btn-primary btn-xs" %>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+<% @movie.reviews.each do |x| %>
+  <div class="reviews">
+    <p class="inline"><%= x.body %>
+    <div class="star-rating" data-score= <%= x.score %> ></div></p>
+  </div>
+  <hr style="height:1px">
+<% end %>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

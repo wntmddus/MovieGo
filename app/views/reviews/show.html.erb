@@ -1,0 +1,24 @@
+<% @reviews.each do |review| %>
+<div class="media">
+  <div class="media-body">
+    <h6 class="media-heading">
+      <div class="reviews">
+        <p class="inline"><%= review.body %>
+        <div class="star-rating" data-score= <%= review.score %> ></div></p>
+      </div>
+      <br>
+      Title - <%= review.movie.title %>
+      <hr style="height:1px">
+    </h6>
+  </div>
+</div>
+<% end %>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
