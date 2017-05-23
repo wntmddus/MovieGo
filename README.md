@@ -1,5 +1,8 @@
 # README
-
+Procedure to run 
+1. rails db:migrate RAILS_ENV=development
+2. rake db:reset
+3. rails s
 In order to run this in localhost, enter rake db:reset first before entering rails s on command line
 
 * Ruby version
