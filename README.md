@@ -5,10 +5,12 @@ Prerequisites to run this web application in localhost
 3. rails s
 
 * Ruby version
-- Ruby 2.3.0
-- Rails 5.0.3
+  - Ruby 2.3.0
+  - Rails 5.0.3
+  
 * System dependencies
   - Linux or Mac environment recommended to run
+  
 * Gem installed
     gem 'sqlite3'
     - sqlite3 for testing database
@@ -27,9 +29,9 @@ Prerequisites to run this web application in localhost
     - For paging
   
 * Database Setup
-  rake db:reset on terminal
+  - rake db:reset on terminal
 
 * Database initialization
-  rake db:seed on terminal
+  - rake db:seed on terminal
 
 
