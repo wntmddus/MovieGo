@@ -1,45 +1,35 @@
 # README
-Procedure to run 
+Prerequisites to run this web application in localhost 
 1. rails db:migrate RAILS_ENV=development
 2. rake db:reset
 3. rails s
-In order to run this in localhost, enter rake db:reset first before entering rails s on command line
 
 * Ruby version
-- ruby 2.3.0p0
-- Rails 5.0.3\
+- Ruby 2.3.0
+- Rails 5.0.3
 * System dependencies
-  group :development do
+  - Linux or Mac environment recommended to run
+* Gem installed
     gem 'sqlite3'
-  end
-  - sqlite3 for testing database
-  group :development, :test do
+    - sqlite3 for testing database
+    
     gem 'rspec-rails', '~> 3.0'
     gem 'shoulda'
     gem 'factory_girl_rails', '~> 4.0'
-  end
-  - factory_girl and rspec-rails for TDD
-  
-  group :production, :staging do
+    - factory_girl, shoulda and rspec-rails for TDD (Test Driven Development)
+ 
     gem "pg"
-  end
-  - PostgresSQL for staging database
+    - PostgresSQL for staging database
 
-  gem 'rails-controller-testing'
-  gem 'faker'
-  - For creating fake data
-  gem 'will_paginate', '~> 3.1.0'
-  - For paging
+    gem 'faker'
+    - For creating fake data
+    gem 'will_paginate', '~> 3.1.0'
+    - For paging
   
-* Configuration
-  
-
-* Database creation
-  rake db:reset
+* Database Setup
+  rake db:reset on terminal
 
 * Database initialization
   rake db:seed on terminal
-
-* Services (job queues, cache servers, search engines, etc.)
 
 
