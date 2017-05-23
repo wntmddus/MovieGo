@@ -1,0 +1,10 @@
+<%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
+   <div class="media-body">
+     <p><%= comment.body %></p>
+     <small>
+       <%= comment.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
+         <%= link_to "Delete", [comment.review.movie, comment.review, comment], method: :delete %>
+     </small>
+   </div>
+   <hr>
+<% end %>

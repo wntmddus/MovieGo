@@ -1,29 +1,26 @@
-<% @reviews.each do |x| %>
 <div class="media">
   <div class="media-body">
     <h6 class="media-heading">
       <div class="reviews">
         <p class="inline">
-          <h6 style="color: gray"><%= link_to "#{x.body}", edit_movie_review_path(x.movie, x) %>
-          (<%= x.comments.length %>)</h6>
-        <div class="star-rating" data-score= <%= x.score %> ></div></p>
+          <%= link_to "#{@review.body}", view_path %>
+        <div class="star-rating" data-score= <%= @review.score %> ></div></p>
       </div>
       <br>
       <small>
-      Title - <%= x.movie.title %>
+      Title - <%= @review.movie.title %>
       <br>
-      Reviewer - <%= x.reviewer %>
+      Reviewer - <%= @review.reviewer %>
       <br>
-      Email - <%= x.email %>
+      Email - <%= @review.email %>
       <br>
-      Created at - <%= x.created_at %>
+      Created at - <%= @review.created_at %>
       <hr style="height:1px">
     </small>
     </h6>
   </div>
 </div>
-<% end %>
-<%= will_paginate @reviews %>
+<%= render @review.comments %>
 <script>
     $('.star-rating').raty({
       path: '/assets/',

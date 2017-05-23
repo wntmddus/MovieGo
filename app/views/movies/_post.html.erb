@@ -22,10 +22,10 @@
                            <div class="media-body">
                              <h6 class="media-heading">
                                <div class="reviews">
-                                 <% if movie.reviews[i] != nil %>
-                                   <div class="star-rating" data-score= <%= movie.reviews[i].score %> >
+                                 <% if movie.reviews[movie.reviews.length-1-i] != nil %>
+                                   <div class="star-rating" data-score= <%= movie.reviews[movie.reviews.length-1-i].score %> >
                                    </div>
-                                   <%= movie.reviews[i].body %>
+                                   <%= movie.reviews[movie.reviews.length-1-i].body %> - <%= movie.reviews[movie.reviews.length-1-i].reviewer %>
                                  <% end %>
                                </div>
                              </h6>

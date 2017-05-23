@@ -1,2 +1,33 @@
-<h1>Review#edit</h1>
-<p>Find me in app/views/review/edit.html.erb</p>
+<div class="media">
+  <div class="media-body">
+    <h6 class="media-heading">
+      <div class="reviews">
+        <p class="inline">
+          <%= @review.body %>
+        <div class="star-rating" data-score= <%= @review.score %> ></div></p>
+      </div>
+      <br>
+      <small>
+      Title - <%= @review.movie.title %>
+      <br>
+      Reviewer - <%= @review.reviewer %>
+      <br>
+      Email - <%= @review.email %>
+      <br>
+      Created at - <%= @review.created_at %>
+      <hr style="height:1px">
+    </small>
+    </h6>
+  </div>
+</div>
+<%= render @review.comments %>
+<%= render 'comments/form', comment: Comment.new, review: @review, movie: @review.movie %>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

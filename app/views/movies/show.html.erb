@@ -23,13 +23,24 @@
        </div>
    </div>
 </div>
-<% @movie.reviews.each do |x| %>
+
+<% @movie.reviews.paginate(:page => params[:page], :per_page => 10).order('created_at DESC').each do |x| %>
   <div class="reviews">
-    <p class="inline"><%= x.body %>
+    <p class="inline"><%= link_to "#{x.body}", edit_movie_review_path(@movie, x)  %>
     <div class="star-rating" data-score= <%= x.score %> ></div></p>
+    <small>
+      Title - <%= x.movie.title %>
+      <br>
+      Reviewer - <%= x.reviewer %>
+      <br>
+      Email - <%= x.email %>
+      <br>
+      Created at - <%= x.created_at %>
+      <hr style="height:1px">
+    </small>
   </div>
-  <hr style="height:1px">
 <% end %>
+<%= will_paginate @movie.reviews.paginate(:page => params[:page], :per_page => 10).order('created_at DESC') %>
 <script>
     $('.star-rating').raty({
       path: '/assets/',

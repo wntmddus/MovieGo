@@ -9,15 +9,22 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
-group :development, :test do
+group :development do
   gem 'sqlite3'
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda'
+  gem 'factory_girl_rails', '~> 4.0'
+end
+
 group :production, :staging do
   gem "pg"
 end
 
-
-
+gem 'rails-controller-testing'
+gem 'faker'
 gem 'will_paginate', '~> 3.1.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -44,8 +51,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass'
-
-gem 'jquery-rails'
 
 gem 'faraday'
 

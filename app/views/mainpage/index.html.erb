@@ -6,18 +6,15 @@
         <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="well well-sm">
               <div class="form-inline">
-                <ul class="button-group" style="display: inline-block" >
-                  <h5>Sort by: &nbsp; </h5>
-                  <%= link_to "Title", class: "btn btn-primary btn-md", sort: "title"%>,
-                  <%= link_to "Released date", :sort => "release_date", class: "btn btn-primary btn-md"%>,
-                  <%= link_to "Genre", :sort => "genre", class: "btn btn-primary btn-md"%>
-                </ul>
+                  <h5>Sort by:
+                  <%= link_to "Title", class: "btn btn-primary btn-md", sort: "title DESC"%>,
+                  <%= link_to "Released date", class: "btn btn-primary btn-md", sort: "release_date DESC"%>,
+                  <%= link_to "Genre", sort: "genre DESC", class: "btn btn-primary btn-md"%> </h5>
               </div>
             </div>
           </div>
       </div>
     </div>
-    <br>
     <% @movies.each do |movie| %>
       <%= render partial: 'movies/post', locals: { movie: movie } %>
     <% end %>
@@ -34,16 +31,17 @@
                   <div class="media-body">
                     <h6 class="media-heading">
                       <div class="reviews">
-                        <p class="inline"><%= @reviews[@reviews.length-1-i].body %>
+                        <p class="inline">
+                          <%= link_to "#{@reviews[@reviews.length-1-i].body}", edit_movie_review_path(@reviews[@reviews.length-1-i].movie, @reviews[@reviews.length-1-i]) %>
                         <div class="star-rating" data-score= <%= @reviews[@reviews.length-1-i].score %> ></div></p>
                       </div>
-                      Title - <%= @reviews[@reviews.length-1-i].movie.title %>
+                      <medium>Title - <%= @reviews[@reviews.length-1-i].movie.title %></medium>
                       <hr style="height:1px">
                     </h6>
                   </div>
                 </div>
               <% end %>
-              <%= link_to "View all Reviews", show_path, class: "btn btn-primary btn-sm" %>
+              <%= link_to "View all Reviews", show_path, class: "btn btn-primary btn-xs" %>
             </div>
           </div>
         </div>
@@ -68,7 +66,7 @@
                    </div>
                  </div>
                <% end %>
-               <%= link_to "View all Movies", show_path, class: "btn btn-primary btn-sm" %>
+               <%= link_to "View all Movies", movies_path, class: "btn btn-primary btn-xs" %>
             </div>
           </div>
         </div>

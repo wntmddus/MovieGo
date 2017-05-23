@@ -10,7 +10,9 @@ class MainpageController < ApplicationController
     @movies.each do |x|
       if x.reviews.length != 0
         x.reviews.each do |y|
-          total = total + y.score
+          if y.score != nil
+            total = total + y.score
+          end
         end
         x.rating = (total / x.reviews.length)
       end
@@ -20,7 +22,9 @@ class MainpageController < ApplicationController
     @recent_movies.each do |x|
       if x.reviews.length != 0
         x.reviews.each do |y|
-          total = total + y.score
+          if y.score != nil
+            total = total + y.score
+          end
         end
         x.rating = (total / x.reviews.length)
       end

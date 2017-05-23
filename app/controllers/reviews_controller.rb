@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = Review.all
+
   end
 
   def new
@@ -22,14 +22,17 @@ class ReviewsController < ApplicationController
     end
 
   end
+  def edit
+    @review = Review.find(params[:id])
+  end
 
   def show
-    @reviews = Review.all
+    @reviews = Review.paginate(:page => params[:page], :per_page => 30).order('created_at DESC')
   end
   private
 
   def review_params
-    params.require(:review).permit(:score, :body)
+    params.require(:review).permit(:score, :body, :reviewer, :email)
   end
 
 end
