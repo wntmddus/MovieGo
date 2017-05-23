@@ -20,7 +20,9 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     if @movie.reviews.length != 0
       @movie.reviews.each do |y|
-        total = total + y.score
+        if y.score != nil
+          total = total + y.score
+        end
       end
       @movie.rating = (total / @movie.reviews.length)
     end
