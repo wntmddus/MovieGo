@@ -12,7 +12,8 @@ Prerequisites to run this web application in localhost
   - Linux or Mac environment recommended to run
   
 * Gem installed
-    gem 'sqlite3'
+    
+gem 'sqlite3'
     - sqlite3 for testing database
     
     gem 'rspec-rails', '~> 3.0'
